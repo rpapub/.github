@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>v2 test ng - rpapub.cprima.net</title>
+    <title>Handling the First Item Differently in a Loop in UiPath - rpapub.cprima.net</title>
 
     <link rel="stylesheet" href=/assets/css/reset.css />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
@@ -86,107 +86,61 @@
 
     <!-- Main Content -->
     <div class="container is-max-widescreen">
-<main class="columns is-variable is-8">
-  <!-- Main Content Section -->
-  <div class="column is-12-mobile is-12-desktop is-12-widescreen is-12-fullhd main-content">
-    <h2 class="title">Main Content</h2>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-  Praesent libero. Sed cursus ante dapibus diam.
-</p>
+        <main class="columns is-variable is-8">
+            <!-- Main Content Section -->
+            <div class="column is-12-mobile is-8-desktop is-8-widescreen is-8-fullhd main-content">
+                bar content
 
-<wa-divider style="--width: 4px"></wa-divider>
+<div class="gist-container">
+  <script src="https://gist.github.com/cprima/4f182a0303e09b7b0398bd403abf100d.js"></script>
+</div>
 
-<wa-tab-group>
-  <wa-tab slot="nav" panel="python">Python</wa-tab>
-  <wa-tab slot="nav" panel="custom">VisualBasic</wa-tab>
-  <wa-tab slot="nav" panel="advanced">CSharp</wa-tab>
-  <wa-tab slot="nav" panel="disabled">PowerShell</wa-tab>
+            </div>
 
-  <wa-tab-panel name="python">
-    <pre><code class="language-python">def greet(name):
-  return f"Hello, {name}!"
+            <!-- Sidebar Section -->
+            <div class="column is-12-mobile is-4-desktop is-3-widescreen is-3-fullhd sidebar">
+<aside>
+  <aside>
+    <h3 class="title is-5">Gists</h3>
+    <ul>
+      
+      <li><a href="/gists/bar.html">Handling the First Item Differently in a Loop in UiPath</a></li>
+    
+      <li><a href="/gists/foo.html">InvokeCode template</a></li>
+    
+    </ul>
+  </aside>
+<aside>
+  <h3 class="title is-5">UiPath Core 301</h3>
+  <ul>
   
-print(greet("World"))</code></pre>
-  </wa-tab-panel>
-  <wa-tab-panel name="custom">
-    <pre><code class="language-vbnet">Public Function AddNumbers(a As Integer, b As Integer) As Integer
-      Return a + b
-End Function</code></pre>
-  </wa-tab-panel>
-  <wa-tab-panel name="advanced">
-    <pre><code class="language-csharp">public class Calculator
-{
-  public int AddNumbers(int a, int b)
-  {
-    return a + b;
-  }
-}</code></pre>
-    .</wa-tab-panel
-  >
-  <wa-tab-panel name="disabled">
-    <pre><code class="language-powershell">function Get-Greeting {
-  param([string]$Name)
-  "Hello, $Name!"
-}
+    <li><a href="/uipath-core-301/bar.html">bar</a></li>
   
-Get-Greeting -Name "World"</code></pre>
-  </wa-tab-panel>
-</wa-tab-group>
+    <li><a href="/uipath-core-301/foo.html">foo</a></li>
+  
+    <li><a href="/uipath-core-301/intro.html">intro</a></li>
+  
+  </ul>
+</aside>
+<aside>
+  <h3 class="title is-5">Icons</h3>
+  <i class="fa-solid fa-user"></i>
+  <i class="fa-regular fa-user"></i>
+  <i class="fa-light fa-user"></i>
+  <i class="fa-thin fa-user"></i>
+</aside>
+<aside>
+  <h3 class="title is-5">Sidebar</h2>
+  <ul>
+    <li><a href=/ >Home</a></li>
+    <li><a href=/v2.html >Home v2</a></li>
+    <li><a href=/presentation.html >Presentation</a></li>
+    <li><a href=/presentation_v0.1.1.html >Presentation v0.1.1</a></li>
+  </ul>
+</aside>
 
-<wa-divider style="--width: 4px"></wa-divider>
-
-<wa-image-comparer>
-  <img
-    slot="before"
-    src="https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80&sat=-100&bri=-5"
-    alt="Grayscale version of kittens in a basket looking around."
-  />
-  <img
-    slot="after"
-    src="https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-    alt="Color version of kittens in a basket looking around."
-  />
-</wa-image-comparer>
-
-<wa-divider style="--width: 4px"></wa-divider>
-
-<wa-carousel pagination navigation mouse-dragging loop>
-  <wa-carousel-item>
-    <img
-      alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
-      src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="A river winding through an evergreen forest (by Luca Bravo on Unsplash)"
-      src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
-      src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
-      src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)"
-      src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
-    />
-  </wa-carousel-item>
-</wa-carousel>
-
-  </div>
-</main>
-
+            </div>
+        </main>
     </div>
 
     <!-- Footer -->
