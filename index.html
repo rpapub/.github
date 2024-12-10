@@ -5,3 +5,42 @@ title: Home
 
 <h2 class="title">Main Content</h2>
 <p>This is where your main content goes. Tailwind makes it easy to style this section.</p>
+
+<wa-divider style="--width: 4px"></wa-divider>
+
+<wa-tab-group>
+  <wa-tab slot="nav" panel="python">Python</wa-tab>
+  <wa-tab slot="nav" panel="custom">VisualBasic</wa-tab>
+  <wa-tab slot="nav" panel="advanced">CSharp</wa-tab>
+  <wa-tab slot="nav" panel="disabled">PowerShell</wa-tab>
+
+  <wa-tab-panel name="python">
+    <pre><code class="language-python">def greet(name):
+  return f"Hello, {name}!"
+  
+print(greet("World"))</code></pre>
+  </wa-tab-panel>
+  <wa-tab-panel name="custom">
+    <pre><code class="language-vbnet">Public Function AddNumbers(a As Integer, b As Integer) As Integer
+      Return a + b
+End Function</code></pre>
+  </wa-tab-panel>
+  <wa-tab-panel name="advanced">
+    <pre><code class="language-csharp">public class Calculator
+{
+  public int AddNumbers(int a, int b)
+  {
+    return a + b;
+  }
+}</code></pre>
+    .</wa-tab-panel
+  >
+  <wa-tab-panel name="disabled">
+    <pre><code class="language-powershell">function Get-Greeting {
+  param([string]$Name)
+  "Hello, $Name!"
+}
+  
+Get-Greeting -Name "World"</code></pre>
+  </wa-tab-panel>
+</wa-tab-group>

@@ -34,6 +34,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+
+  <!-- OpenGraph Meta Tags -->
+  {% if page.layout == 'posts' or page.opengraph.linkedin.image %}
+    {% if page.opengraph and page.opengraph.linkedin and page.opengraph.linkedin.image %}
+      <meta property="og:title" content="{{ page.title }}">
+      <meta property="og:image" content="{{ page.opengraph.linkedin.image }}">
+      <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | escape | default: site.description }}">
+      <meta property="og:url" content="{{ page.url | absolute_url }}">
+      <meta property="og:type" content="article">
+    {% endif %}
+  {% endif %}
+
 </head>
 
 <body>

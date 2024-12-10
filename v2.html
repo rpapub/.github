@@ -11,6 +11,30 @@ title: v2 test ng
 
 <wa-divider style="--width: 4px"></wa-divider>
 
+<link rel="stylesheet" href="/assets/reveal.js-5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="/assets/reveal.js-5.1.0/dist/theme/solarized.css" id="theme">
+<div style="width: 640px; height: 360px; border: 2px solid #268bd2; border-radius: 10px; box-shadow: 0 4px 8px rgba(88, 110, 117, 0.5); padding: 20px;" class="reveal deck1"><div class="slides"><section><h2>deck 1</h2></section><section>11</section></div></div>
+<wa-divider style="--width: 4px"></wa-divider>
+<div style="width: 640px; height: 360px; border: 2px solid #268bd2; border-radius: 10px; box-shadow: 0 4px 8px rgba(88, 110, 117, 0.5); padding: 20px;" class="reveal deck2"><div class="slides"><section><h2>deck 2</h2></section><section>21</section></div></div>
+
+<script src={{"/assets/reveal.js-5.1.0/dist/reveal.js" | prepend: site.baseurl }}></script>
+<script>
+  let deck1 = new Reveal(document.querySelector('.deck1'), {
+    embedded: true,
+    progress: false,
+    keyboardCondition: 'focused', // only react to keys when focused
+  });
+  deck1.initialize();
+
+  let deck2 = new Reveal(document.querySelector('.deck2'), {
+    embedded: true,
+    progress: false,
+  });
+  deck2.initialize();
+</script>
+
+<wa-divider style="--width: 4px"></wa-divider>
+
 <wa-tab-group>
   <wa-tab slot="nav" panel="python">Python</wa-tab>
   <wa-tab slot="nav" panel="custom">VisualBasic</wa-tab>

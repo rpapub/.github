@@ -67,5 +67,24 @@ deploy:
 	#git checkout $(CURRENT_BRANCH)
 	git checkout $(GIT_BRANCH_EDITING)
 
+# Convert SVGs to PNGs using ImageMagick
+convert-svg:
+	@echo "Calling PowerShell script to convert SVG files to PNG..."
+	./convert-svg.ps1 -SourcePath "_site/assets/images/opengraph/linkedin/"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
