@@ -1,6 +1,7 @@
 ---
-layout: base-main
-title: Chocolatey Packages
+title: Chocolatey for UiPath Studio
+permalink: /resources/devops/tools/chocolatey/
+sort_order: 0
 ---
 
 # About Chocolatey

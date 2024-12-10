@@ -1,12 +1,15 @@
 ---
-layout: default
+layout: posts
 title: "Welcome to Jekyll!"
 date: 2024-12-06 17:54:12 +0100
 categories: jekyll update
+slug: welcome-to-jekyll
+svg_layout: svg-opengraph-linkedin
+svg_permalink: /assets/images/opengraph/linkedin/rpapub.cprima.net.svg
+opengraph:
+  linkedin:
+    image: /assets/images/opengraph/linkedin/rpapub.cprima.net.png
 ---
-
-
-This article has {{ "foo bar" | count_words }} words.
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
@@ -18,7 +21,7 @@ Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit number
 
 Jekyll also offers powerful support for code snippets:
 
-{% highlight ruby %}
+{% highlight python %}
 def print_hi(name)
 puts "Hi, #{name}"
 end
