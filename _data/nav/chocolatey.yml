@@ -1,0 +1,52 @@
+toc:
+  - title: Chocolatey
+    subfolderitems:
+      - page: Introduction
+        url: /resources/devops/tools/chocolatey/introduction.html
+        subsubfolderitems:
+          - page: Use Cases
+            url: /resources/devops/tools/chocolatey/usecases.html
+          - page: Big Picture
+            url: /resources/devops/tools/chocolatey/big-picture.html
+      - page: Installation
+        url: /resources/devops/tools/chocolatey/installation.html
+      - page: DevOps
+        url: /resources/devops/tools/chocolatey/devops-package-management.html
+  - title: Choco'd UiPath
+    subfolderitems:
+      - page: About
+        url: /resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html
+      - page: UiPath Studio Community Edition
+        url: /resources/devops/tools/chocolatey/uipath-studio-community-package.html
+      - page: UiPath Studio
+        url: /resources/devops/tools/chocolatey/uipath-studio-package.html
+      - page: Support
+        url: /resources/devops/tools/chocolatey/support-chocolatey-uipath-packages.html
+      - page: LowCode and DevOps
+        url: /resources/devops/tools/chocolatey/lowcode-devops.html
+        subsubfolderitems:
+          - page: Challenges
+            url: /resources/devops/tools/chocolatey/lowcode-devops-challenges.html
+          - page: Strategies
+            url: /resources/devops/tools/chocolatey/lowcode-devops-strategies.html
+      - page: Changelog
+        url: /resources/devops/tools/chocolatey/changelog-chocolatey-uipath-packages.html
+      - page: Roadmap
+        url: /resources/devops/tools/chocolatey/roadmap-chocolatey-uipath-packages.html
+      - page: News
+        url: /resources/devops/tools/chocolatey/news-chocolatey-uipath-packages.html
+  - title: Chocolatey at Home
+    subfolderitems:
+      - page: Homelab
+        url: /resources/devops/tools/chocolatey/in-the-homelab.html
+        subsubfolderitems:
+          - page: Software Installation
+            url: /resources/devops/tools/chocolatey/homelab-software-installation.html
+          - page: Software Updates
+            url: /resources/devops/tools/chocolatey/homelab-software-updates.html
+      - page: Benefits
+        url: /resources/devops/tools/chocolatey/homelab-benefits.html
+      - page: Further Reading
+        url: /resources/devops/tools/chocolatey/homelab-further-reading.html
+      - page: Checklists
+        url: /resources/devops/tools/chocolatey/homelab-checklists.html

@@ -45,12 +45,14 @@ kramdown:
       line_numbers: false
 future: true
 timezone: Europe/Berlin
-permalink: /:year/:month/:day/:title:output_ext
+permalink: /blog/:slug
 
 # Build settings
 #theme: minima
 plugins:
   - jekyll-feed
+  - jekyll_github_sample
+  - flexible_include
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -73,6 +75,8 @@ plugins:
 #   - vendor/ruby/
 
 collections:
+  svg:
+    output: true
   gists:
     output: true
     gist_hash: true
@@ -81,23 +85,64 @@ collections:
     output: true
     title: true
     order:
-      - intro.html
-      - foo.html
-      - bar.html
+      - index.html
+      - modules/test-driven-development/index.html
+      - modules/test-driven-development/testdata.html
+      - modules/datatypes/index.html
+      - modules/datatypes/alpha.html
+      - modules/datatypes/omega.html
+      - modules/refactoring-legacy/index.html
+      - modules/refactoring-legacy/alpha.html
+      - modules/refactoring-legacy/omega.html
+      - modules/reframework/index.html
+      - modules/reframework/in-process-queue.html
+      - modules/reframework/transaction-item.html
+  chocolatey:
+    output: true
+    sort_order: true
+    sort_by: sort_order
 
 defaults:
   - scope:
       path: "" # an empty string here means all files in the project
     values:
-      layout: "default"
+      layout: "base-main-sidebar"
   - scope:
       path: ""
       type: "gists"
     values:
       layout: "default-gist"
+  - scope:
+      path: "opengraph/linkedin"
+      type: "svg"
+    values:
+      layout: svg-opengraph-linkedin
+      permalink: /assets/images/opengraph/linkedin/:slug.svg
+  - scope:
+      path: ""
+      type: "chocolatey"
+    values:
+      layout: "base-wapage2"
+      nav: chocolatey.toc
+      permalink: /resources/devops/tools/chocolatey/:slug.html
 
+flexible_include:
+  die_on_flexible_include_error: false
 
-default_class:
-  h1: "title"
-  h2: "title"
-  h3: "title"
+colors:
+  - base3: "#fdf6e3"
+  - base2: "#eee8d5"
+  - base1: "#93a1a1"
+  - base0: "#839496"
+  - base00: "#657b83"
+  - base01: "#586e75"
+  - base02: "#073642"
+  - base03: "#002b36"
+  - yellow: "#b58900"
+  - orange: "#cb4b16"
+  - red: "#dc322f"
+  - magenta: "#d33682"
+  - violet: "#6c71c4"
+  - blue: "#268bd2"
+  - cyan: "#2aa198"
+  - green: "#859900"

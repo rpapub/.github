@@ -10,13 +10,9 @@
     <link rel="stylesheet" href={{"/assets/css/reset.css" | relative_url }} />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
     <link rel="stylesheet" href={{"/assets/css/bulma-custom-theme.css" | relative_url }} />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css" />
-    <link rel="stylesheet" href={{"/assets/css/prism-custom.css" | relative_url }} />
     <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-alpha.4/dist/themes/default.css" />
     <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-alpha.4/dist/webawesome.loader.js"></script>
     <link rel="stylesheet" href={{"/assets/css/webawesome-custom.css" | relative_url }} />
-    <script src="https://kit.fontawesome.com/5df958b77d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href={{"/assets/css/fontawesome-custom.css" | relative_url }} />
 
     <!-- Project Color Preferences -->
     <link rel="stylesheet" href={{"/assets/css/project-colors.css" | relative_url }} />
@@ -28,12 +24,30 @@
 
   <link rel="stylesheet" href={{ "/assets/css/gists.css" | relative_url }} />
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css" />
+    <link rel="stylesheet" href={{"/assets/css/prism-custom.css" | relative_url }} />
+
+    <script src="https://kit.fontawesome.com/5df958b77d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href={{"/assets/css/fontawesome-custom.css" | relative_url }} />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-basic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-vbnet.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+
+  <!-- OpenGraph Meta Tags -->
+  {% if page.layout == 'posts' or page.opengraph.linkedin.image %}
+    {% if page.opengraph and page.opengraph.linkedin and page.opengraph.linkedin.image %}
+      <meta property="og:title" content="{{ page.title }}">
+      <meta property="og:image" content="{{ page.opengraph.linkedin.image | absolute_url }}">
+      <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | escape | default: site.description }}">
+      <meta property="og:url" content="{{ page.url | absolute_url }}">
+      <meta property="og:type" content="article">
+    {% endif %}
+  {% endif %}
+
 </head>
 
 <body>

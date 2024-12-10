@@ -16,6 +16,8 @@ gem "jekyll", "~> 4.3.2"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
+  gem 'jekyll-contentblocks'
+  gem 'jekyll_flexible_include'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -32,3 +34,5 @@ end
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
+#https://github.com/bwillis/jekyll-github-sample
+gem "jekyll_github_sample", git: "https://github.com/bwillis/jekyll-github-sample", ref: 'master'

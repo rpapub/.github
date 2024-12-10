@@ -31,3 +31,11 @@
     <li><a href={{ "/presentation_v0.1.1.html" | relative_url }} >Presentation v0.1.1</a></li>
   </ul>
 </aside>
+<aside>
+  <h3 class="title is-5">Chocolatey</h3>
+  <ul>
+  {% for doc in site.chocolatey %}
+    <li><a href="{{ doc.url | relative_url }}">{{doc.title}}</a></li>
+  {% endfor %}
+  </ul>
+</aside>

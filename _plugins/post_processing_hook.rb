@@ -30,10 +30,10 @@ module Jekyll
         Jekyll.logger.info "AddClassPlugin", "Processing #{doc.relative_path}"
 
         # Modify the content: Add classes to specific HTML tags
-        doc.output = add_class_to_tags(doc.output, "h1", "title")
-        doc.output = add_class_to_tags(doc.output, "h2", "subtitle")
-        doc.output = add_class_to_tags(doc.output, "p", "text")
-        doc.output = add_class_to_tags(doc.output, "a", "link")
+        #doc.output = add_class_to_tags(doc.output, "h1", "title")
+        #doc.output = add_class_to_tags(doc.output, "h2", "subtitle")
+        #doc.output = add_class_to_tags(doc.output, "p", "text")
+        #doc.output = add_class_to_tags(doc.output, "a", "link")
 
         Jekyll.logger.info "AddClassPlugin", "Finished processing #{doc.relative_path}"
       end # End of process_content
