@@ -10,7 +10,7 @@ endif
 JEKYLL_BUILD_CMD = bundle exec jekyll build --config _config.yml
 JEKYLL_BUILD_CMD_TEST = bundle exec jekyll build --config _config.yml,_config_testing.yml
 JEKYLL_SERVE_CMD = bundle exec jekyll serve --config _config.yml --watch --verbose --trace --port 4004 --host localhost
-JEKYLL_SERVE_CMD = bundle exec jekyll serve --config _config.yml --watch --trace --port 4004 --host localhost
+#JEKYLL_SERVE_CMD = bundle exec jekyll serve --config _config.yml --watch --trace --port 4004 --host localhost
 #JEKYLL_SERVE_CMD = bundle exec jekyll serve --config _config.yml --watch --port 4004 --host localhost
 PROJECT_DIR = D:/github.com/rpapub/dotgithub
 GIT_PROD_REMOTE = origin

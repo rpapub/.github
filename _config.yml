@@ -101,6 +101,8 @@ collections:
     output: true
     sort_order: true
     sort_by: sort_order
+  graphs:
+    output: true
 
 defaults:
   - scope:
@@ -146,3 +148,22 @@ colors:
   - blue: "#268bd2"
   - cyan: "#2aa198"
   - green: "#859900"
+
+
+sketchviz:
+  input_collection: graphs
+  output:
+    filesystem:
+      directory: assets/graphs
+      styled: false
+    inline:
+      styled: true
+      css_classes:
+        svg: sketchviz
+        background: sketchviz-bg
+        node: sketchviz-node
+        edge: sketchviz-edge
+  executable:
+    dot: dot
+  roughness: 1.5
+  bowing: 1.0
