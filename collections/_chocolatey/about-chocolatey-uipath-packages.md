@@ -54,6 +54,6 @@ This is a hobby project by Christian Prior-Mamulyan.
 Via GitHub issues at [https://github.com/rpapub/ChocolateyPackages/issues](https://github.com/rpapub/ChocolateyPackages/issues).
 
 {% contentfor main-footer %}
-<wa-qr-code value="https://rpapub.cprima.net/resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html" fill="{{ page.colors.base03}}" background="{{ page.colors.base3}}" style="float: right;"></wa-qr-code>
+<wa-qr-code value="https://rpapub.cprima.net/resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html" fill="{{ page.colors.base03}}" background="{{ page.colors.base3}}" style="float: right; margin-left: 1rem;"></wa-qr-code>
 The permalink for the page "{{ page.title }}" is [https://rpapub.cprima.net/resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html](https://rpapub.cprima.net/resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html).
 {% endcontentfor %}
