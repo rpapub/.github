@@ -36,3 +36,10 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 #https://github.com/bwillis/jekyll-github-sample
 gem "jekyll_github_sample", git: "https://github.com/bwillis/jekyll-github-sample", ref: 'master'
+
+gem "jekyll-sketchviz", path: "../../cprima/jekyll-sketchviz"
+
+# no longer be part of the default gems starting from Ruby 3.4.0
+gem 'csv'
+gem 'base64'
+gem 'bigdecimal'
