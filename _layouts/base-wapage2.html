@@ -50,14 +50,12 @@
     </div>
     <header slot="header" class="wa-split">
       <div class="wa-cluster">
-        <a href="{{" /" | relative_url }}"><wa-icon name="head-side-gear"></wa-icon><span id="brand-name"
-            class="wa-heading-s">Home</span></a>
-        <a href="{{" /resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html" | relative_url
-          }}"><wa-icon name="box"></wa-icon>Chocolatey</a>
+        <a href="{{"/" | relative_url }}"><wa-icon name="head-side-gear"></wa-icon><span id="brand-name"
+            class="wa-heading-s">rpapub</span></a>
       </div>
       <div class="wa-cluster wa-gap-xs">
-        <wa-icon family="brands" name="github"></wa-icon>
-        <wa-icon family="brands" name="linkedin"></wa-icon>
+        <a href="{{" /resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html" | relative_url
+          }}"><wa-icon name="box"></wa-icon> Chocolatey</a>
       </div>
     </header>
     <!--nav slot="subheader">
@@ -70,17 +68,11 @@
   </wa-breadcrumb>
 </div>
 </nav//-->
-    <!--nav slot="navigation-header">
-<div class="wa-flank">
 
-</div>
+    <!--nav slot="navigation-header">
+<div class="wa-flank"></div>
 </nav //-->
     <nav slot="navigation">
-      <!-- <a href="#identification">Identification</a>
-<a href="#range">Range and Habitat</a>
-<a href="#behavior">Behavior</a>
-<a href="#conservation">Conservation</a>
-//-->
 
       {% if site.data.nav.chocolatey.toc[0] %}
       {% for item in site.data.nav.chocolatey.toc %}
@@ -104,11 +96,13 @@
       {% endif %}
 
     </nav>
+
     {% ifhascontent navigation-footer %}
     <nav slot="navigation-footer">
       {% contentblock navigation-footer %}
     </nav>
     {% endifhascontent %}
+
     <!-- nav slot="navigation-footer">
 <a href="#" class="wa-flank" style="--flank-size: 1.25em;">
 <wa-icon name="camera"></wa-icon>
