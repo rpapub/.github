@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% if title %}{{ site.title }} - {{ title | escape }}{% elsif page.title %}{{ page.title | escape }} - {{ site.title }}{% else %}{{ site.title | escape }}{% endif %}</title>
+
+<link rel="stylesheet" href={{"/assets/css/webawesome/themes/reset.css" | relative_url }}>
+<link id="color-stylesheet" rel="stylesheet" href={{"/assets/css/webawesome/themes/layout.css" | relative_url }}>
+<link id="color-stylesheet" rel="stylesheet" href={{"/assets/css/webawesome/themes/utilities.css" | relative_url }}>
+<link rel="stylesheet" href={{"/assets/css/webawesome/themes/forms.css" | relative_url }}>
+<link href={{"/assets/css/webawesome/themes/default.css" | relative_url }} rel="stylesheet" as="style" id="theme-stylesheet">
+<link rel="stylesheet" id="theme-stylesheet" href={{"/assets/css/webawesome/themes/default.css" | relative_url }}>
+<script src="https://backers.webawesome.com/dist/webawesome.loader.js" type="module"></script>
+
+
+  <!-- OpenGraph Meta Tags -->
+  {% if page.layout == 'posts' or page.opengraph.linkedin.image %}
+    {% if page.opengraph and page.opengraph.linkedin and page.opengraph.linkedin.image %}
+      <meta property="og:title" content="{{ page.title }}">
+      <meta property="og:image" content="{{ page.opengraph.linkedin.image | absolute_url }}">
+      <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | escape | default: site.description }}">
+      <meta property="og:url" content="{{ page.url | absolute_url }}">
+      <meta property="og:type" content="article">
+    {% endif %}
+  {% endif %}
+
+</head>
+
+<body>
+<wa-page mobile-breakpoint="920">
+  <div slot="banner" class="wa-body-s">
+    <a href="#" class="wa-cluster wa-align-items-baseline wa-gap-xs" style="flex-wrap: nowrap;">
+      <wa-icon name="gift"></wa-icon>
+      <span>Give a Hoot for the Holidays: Donate now and double your impact.</span>
+    </a>
+  </div>
+  <header slot="header" class="wa-split">
+    <div class="wa-cluster">
+      <wa-icon name="feather-pointed" style="color: var(--wa-color-brand-fill-loud); font-size: 1.5em;"></wa-icon>
+      <span id="brand-name" class="wa-heading-s">Audubon Worldwide</span>
+      <a href="#">Our Work</a>
+      <a href="#">About Us</a>
+      <a href="#">Discover</a>
+      <a href="#">Get Involved</a>
+    </div>
+    <div class="wa-cluster wa-gap-xs">
+      <wa-button size="small" variant="brand" appearance="outlined">Find Your Local Audubon</wa-button>
+      <wa-button size="small" variant="brand">Donate</wa-button>
+    </div>
+  </header>
+  <nav slot="subheader">
+    <div class="wa-cluster" style="flex-wrap: nowrap;">
+      <wa-icon-button data-toggle-nav name="bars" label="Menu"></wa-icon-button>
+      <wa-breadcrumb style="font-size: var(--wa-font-size-s);">
+        <wa-breadcrumb-item>Field Guides</wa-breadcrumb-item>
+        <wa-breadcrumb-item>Owls</wa-breadcrumb-item>
+        <wa-breadcrumb-item>Great Horned Owl</wa-breadcrumb-item>
+      </wa-breadcrumb>
+    </div>
+    <wa-input id="search" placeholder="Search" size="small" style="max-inline-size: 12rem;">
+      <wa-icon slot="prefix" name="magnifying-glass"></wa-icon>
+    </wa-input>
+  </nav>
+  <nav slot="navigation-header">
+    <div class="wa-flank">
+      <wa-avatar image="https://images.unsplash.com/photo-1544648720-132573cb590d?q=20" label=""></wa-avatar>
+      <div class="wa-stack wa-gap-3xs">
+        <span class="wa-heading-s">Great Horned Owl</span>
+        <span class="wa-caption-s" lang="la"><em>Bubo virginianus</em></span>
+      </div>
+    </div>
+  </nav>
+  <nav slot="navigation">
+    <a href="#identification">Identification</a>
+    <a href="#range">Range and Habitat</a>
+    <a href="#behavior">Behavior</a>
+    <a href="#conservation">Conservation</a>
+  </nav>
+  <nav slot="navigation-footer">
+    <a href="#" class="wa-flank" style="--flank-size: 1.25em;">
+      <wa-icon name="camera"></wa-icon>
+      <span>Photo Gallery</span>
+    </a>
+    <a href="#" class="wa-flank" style="--flank-size: 1.25em;">
+      <wa-icon name="map-location-dot"></wa-icon>
+      <span>Interactive Range Map</span>
+    </a>
+  </nav>
+
+{{ content }}
+
+  <footer slot="footer" class="wa-grid wa-gap-xl">
+    <div class="wa-cluster" style="flex-wrap: nowrap;">
+      <wa-icon name="feather-pointed" style="font-size: 1.5em;"></wa-icon>
+      <span class="wa-heading-s">Audubon Worldwide</span>
+    </div>
+    <div class="wa-stack">
+      <h3 class="wa-heading-xs">Our Work</h3>
+      <a href="#">Habitat Restoration</a>
+      <a href="#">Migration Science</a>
+      <a href="#">Advocacy</a>
+    </div>
+    <div class="wa-stack">
+      <h3 class="wa-heading-xs">About Us</h3>
+      <a href="#">Our History</a>
+      <a href="#">Leadership</a>
+      <a href="#">Fiscal Reports</a>
+    </div>
+    <div class="wa-stack">
+      <h3 class="wa-heading-xs">Discover</h3>
+      <a href="#">Field Guides</a>
+      <a href="#">Photo Search</a>
+      <a href="#">Gear and Resources</a>
+    </div>
+    <div class="wa-stack">
+      <h3 class="wa-heading-xs">Get Involved</h3>
+      <a href="#">Adopt a Bird</a>
+      <a href="#">Your Local Audubon</a>
+      <a href="#">Youth Audubon Camps</a>
+    </div>
+  </footer>
+</wa-page>
+
+<style>
+  wa-page {
+    --menu-width: 15rem;
+    --aside-width: 15rem;
+  }
+  wa-page[view='desktop'] [data-toggle-nav] {
+    display: none;
+  }
+  wa-page[view='mobile'] {
+    --menu-width: auto;
+    --aside-width: auto;
+  }
+  wa-page[view='mobile'] [slot='aside'],
+  wa-page[view='mobile'] #brand-name,
+  wa-page[view='mobile'] #search {
+    display: none;
+  }
+  [slot='banner'] {
+    --wa-color-text-link: var(--wa-color-neutral-on-loud);
+    background-color: var(--wa-color-neutral-fill-loud);
+  }
+  [slot='header'] {
+    --wa-link-decoration-default: none;
+    border-block-end: var(--wa-border-width-s) var(--wa-border-style) var(--wa-color-surface-border);
+  }
+  [slot*='header'] a {
+    font-weight: var(--wa-font-weight-action);
+  }
+  [slot='subheader'] {
+    background-color: var(--wa-color-surface-lowered);
+    border-block-end: var(--wa-border-width-s) var(--wa-border-style) var(--wa-color-surface-border);
+  }
+  [slot='navigation-header'] {
+    border-block-end: var(--wa-border-width-s) var(--wa-border-style) var(--wa-color-surface-border);
+  }
+  wa-page[view='desktop'] [slot*='navigation'] {
+    border-inline-end: var(--wa-border-width-s) var(--wa-border-style) var(--wa-color-surface-border);
+  }
+  [slot*='navigation'] a {
+    --wa-color-text-link: var(--wa-color-text-normal);
+  }
+  [slot='navigation-footer'] {
+    border-block-start: var(--wa-border-width-s) var(--wa-border-style) var(--wa-color-surface-border);
+  }
+  [slot='main-header'],
+  main,
+  [slot='main-footer'] {
+    max-inline-size: 60rem;
+    margin-inline: auto;
+  }
+  [slot='main-footer'] {
+    border-block-start: var(--wa-border-width-s) var(--wa-border-style) var(--wa-color-surface-border);
+  }
+  [slot='footer'] {
+    --wa-color-text-link: var(--wa-color-text-quiet);
+    background-color: var(--wa-color-surface-lowered);
+    font-size: var(--wa-font-size-s);
+  }
+</style>
+
+    <script src={{ "/assets/js/app.js" | relative_url }}></script>
+</body>
+
+</html>

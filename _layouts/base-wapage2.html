@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-fa-kit-code="5df958b77d" class="wa-theme-solarized-light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ site.title }} - {{ title | escape }}{% elsif page.title %}{{ page.title | escape }} - {{
+    site.title }}{% else %}{{ site.title | escape }}{% endif %}</title>
+
+  <link rel="stylesheet" href={{"/assets/css/solarized.css" | relative_url }}>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css" />
+  <link rel="stylesheet" href={{"/assets/css/prism-custom.css" | relative_url }} />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-basic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-vbnet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/5df958b77d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href={{"/assets/css/fontawesome-custom.css" | relative_url }} />
+
+  <link rel="stylesheet" href={{"/assets/css/webawesome/themes/reset.css" | relative_url }}>
+  <link id="color-stylesheet" rel="stylesheet" href={{"/assets/css/webawesome/themes/layout.css" | relative_url }}>
+  <link id="color-stylesheet" rel="stylesheet" href={{"/assets/css/webawesome/themes/utilities.css" | relative_url }}>
+  <link rel="stylesheet" href={{"/assets/css/webawesome/themes/forms.css" | relative_url }}>
+  <link href={{"/assets/css/webawesome/themes/solarized-light.css" | relative_url }} rel="stylesheet" as="style"
+    id="theme-stylesheet">
+  <link rel="stylesheet" id="theme-stylesheet" href={{"/assets/css/webawesome/themes/default.css" | relative_url }}>
+  <link href={{"/assets/css/webawesome/themes/default.css" | relative_url }} rel="stylesheet" as="style"
+    id="theme-stylesheet">
+  <link rel="stylesheet" id="theme-stylesheet" href={{"/assets/css/webawesome/themes/solarized-light.css" | relative_url
+    }}>
+  <script src="https://backers.webawesome.com/dist/webawesome.loader.js" type="module"></script>
+  <link rel="stylesheet" href={{"/assets/css/webawesome/cprima.css" | relative_url }}>
+  <link rel="stylesheet" href={{"/assets/css/webawesome/checklists.css" | relative_url }}>
+</head>
+
+<body>
+
+  <wa-page mobile-breakpoint="920">
+
+    <div slot="banner" class="wa-body-s">
+      <!--a href="#" class="wa-cluster wa-align-items-baseline wa-gap-xs" style="flex-wrap: nowrap;"-->
+      <wa-icon name="flask"></wa-icon>
+      <span>Alpha Version</span>
+      <!--/a-->
+    </div>
+    <header slot="header" class="wa-split">
+      <div class="wa-cluster">
+        <a href="{{"/" | relative_url }}"><wa-icon name="head-side-gear"></wa-icon><span id="brand-name"
+            class="wa-heading-s">rpapub</span></a>
+      </div>
+      <div class="wa-cluster wa-gap-xs">
+        <a href="{{" /resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html" | relative_url
+          }}"><wa-icon name="box"></wa-icon> Chocolatey</a>
+      </div>
+    </header>
+    <!--nav slot="subheader">
+<div class="wa-cluster" style="flex-wrap: nowrap;">
+  <wa-icon-button data-toggle-nav name="bars" label="Menu"></wa-icon-button>
+  <wa-breadcrumb style="font-size: var(--wa-font-size-s);">
+    <wa-breadcrumb-item>Field Guides</wa-breadcrumb-item>
+    <wa-breadcrumb-item>Owls</wa-breadcrumb-item>
+    <wa-breadcrumb-item>Great Horned Owl</wa-breadcrumb-item>
+  </wa-breadcrumb>
+</div>
+</nav//-->
+
+    <!--nav slot="navigation-header">
+<div class="wa-flank"></div>
+</nav //-->
+    <nav slot="navigation">
+
+      {% if site.data.nav.chocolatey.toc[0] %}
+      {% for item in site.data.nav.chocolatey.toc %}
+      <h2>{{ item.title }}</h2>
+      {% if item.subfolderitems[0] %}
+      <ul>
+        {% for entry in item.subfolderitems %}
+        <li><a href="{{ entry.url }}">{{ entry.page }}</a>
+          {% if entry.subsubfolderitems[0] %}
+          <ul>
+            {% for subentry in entry.subsubfolderitems %}
+            <li><a href="{{ subentry.url }}">{{ subentry.page }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+
+    </nav>
+
+    {% ifhascontent navigation-footer %}
+    <nav slot="navigation-footer">
+      {% contentblock navigation-footer %}
+    </nav>
+    {% endifhascontent %}
+
+    <!-- nav slot="navigation-footer">
+<a href="#" class="wa-flank" style="--flank-size: 1.25em;">
+<wa-icon name="camera"></wa-icon>
+<span>Photo Gallery</span>
+</a>
+<a href="#" class="wa-flank" style="--flank-size: 1.25em;">
+<wa-icon name="map-location-dot"></wa-icon>
+<span>Interactive Range Map</span>
+</a>
+</nav //-->
+
+    {% ifhascontent main-header %}
+    <main-header>
+      {% contentblock main-header %}
+    </main-header>
+    {% endifhascontent %}
+
+    <main class="wa-body-l">
+      {{ content }}
+    </main>
+
+
+    {% ifhascontent main-footer %}
+    <footer slot="main-footer">
+      <section>
+        {% contentblock main-footer %}
+      </section>
+    </footer>
+    {% endifhascontent %}
+    <!-- footer slot="main-footer">
+<section>
+<h2 class="wa-heading-m">Sources</h2>
+<ul class="wa-body-s">
+<li><cite><a href="https://www.audubon.org/field-guide/bird/great-horned-owl" target="_blank" rel="noopener">Great Horned Owl</a></cite>, National Audubon Society. Retrieved 5 December 2024.</li>
+<li><cite><a href="https://www.allaboutbirds.org/guide/Great_Horned_Owl/" target="_blank" rel="noopener">Great Horned Owl</a></cite>, All About Birds by CornellLab. Retrieved 5 December 2024.</li>
+<li>Armistead, G. L. (2015). <cite>Field guide to birds of Pennsylvania</cite>. Scott & Nix, Inc.</li>
+</ul>
+</section>
+</footer>
+//-->
+
+
+    {% ifhascontent aside-header %}
+    <aside slot="aside">
+      <h2 class="wa-heading-m">foo</h2>
+      {% contentblock aside-header %}
+    </aside>
+    {% endifhascontent %}
+    {% ifnothascontent aside-header %}
+    {% endifnothascontent %}
+
+    {% assign filtered_items = site.data.taptc | where_exp: "item", "page.components contains item.id" %}
+
+    {% if filtered_items.size > 0 %}
+
+    <aside slot="aside">
+      <h2 class="wa-heading-m">{% if filtered_items.size > 1 %}Technologies{% else %}Technology{% endif %}</h2>
+      {% for item in filtered_items %}
+      <wa-card with-header class="card-header">
+        <div slot="header">
+          {{ item.name }}
+        </div>
+
+        <div class="wa-stack wa-gap-xs">
+
+          <!-- Category and Vendor -->
+          <span class="wa-caption-s">Category: {{ item.category }}</span>
+          <span class="wa-caption-s">Vendor: {{ item.vendor }}</span>
+
+          <!-- Description -->
+          <p class="wa-body-xs" style="line-height: var(--wa-line-height-condensed);">{{ item.description }}</p>
+
+          <!-- Additional Properties -->
+          <div class="wa-stack wa-gap-3xs">
+            <span class="wa-caption-s">Version: {{ item.version }}</span>
+            <span class="wa-caption-s">Platform: {{ item.platform }}</span>
+            <span class="wa-caption-s">License: {{ item.licence }}</span>
+          </div>
+        </div>
+      </wa-card>
+
+      {% endfor %}
+
+    </aside>
+    {% else %}
+    {% endif %}
+
+    {% ifhascontent aside-footer %}
+    <aside slot="aside">
+      <h2 class="wa-heading-m">foo</h2>
+      {% contentblock aside-footer %}
+    </aside>
+    {% endifhascontent %}
+    {% ifnothascontent aside-footer %}
+    {% endifnothascontent %}
+
+    <footer slot="footer" class="wa-grid wa-gap-xl">
+      <div class="wa-cluster" style="flex-wrap: nowrap;">
+        <wa-icon name="head-side-gear" style="font-size: 1.5em;"></wa-icon>
+        <span class="wa-heading-s">rpapub</span>
+      </div>
+      <div class="wa-stack">
+        <h3 class="wa-heading-xs">RPA UiPath Core 301</h3>
+        <a href="#">coming soon</a>
+        <a href="#">to be continued</a>
+      </div>
+      <div class="wa-stack">
+        <h3 class="wa-heading-xs">Checklists</h3>
+        <a href="#">coming soon</a>
+      </div>
+      <div class="wa-stack">
+        <h3 class="wa-heading-xs">Resources</h3>
+        <a href="#">Support</a>
+        <a href="#">Blog</a>
+        <a href="https://www.myget.org/feed/Packages/project-basturma-chocolatey-packages">Chocolatey Feed</a>
+      </div>
+      <div class="wa-stack">
+        <h3 class="wa-heading-xs">About</h3>
+        <a href="#">Imprint</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+  </wa-page>
+
+  <style>
+  </style>
+
+</body>
+
+</html>

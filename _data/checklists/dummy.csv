@@ -1,0 +1,2 @@
+id,category,checklistname,key,value,remark,component
+1,tests,Streamdeck ohne Funktion,keys don't light up,check cable,foobar,TA_PTC_002

@@ -10,6 +10,8 @@ endif
 JEKYLL_BUILD_CMD = bundle exec jekyll build --config _config.yml
 JEKYLL_BUILD_CMD_TEST = bundle exec jekyll build --config _config.yml,_config_testing.yml
 JEKYLL_SERVE_CMD = bundle exec jekyll serve --config _config.yml --watch --verbose --trace --port 4004 --host localhost
+#JEKYLL_SERVE_CMD = bundle exec jekyll serve --config _config.yml --watch --trace --port 4004 --host localhost
+#JEKYLL_SERVE_CMD = bundle exec jekyll serve --config _config.yml --watch --port 4004 --host localhost
 PROJECT_DIR = D:/github.com/rpapub/dotgithub
 GIT_PROD_REMOTE = origin
 GIT_TEST_REMOTE = test
@@ -66,6 +68,25 @@ deploy:
 	# Switch back to the original branch using Make's shell (returning to the original branch)
 	#git checkout $(CURRENT_BRANCH)
 	git checkout $(GIT_BRANCH_EDITING)
+
+# Convert SVGs to PNGs using ImageMagick
+convert-svg:
+	@echo "Calling PowerShell script to convert SVG files to PNG..."
+	./convert-svg.ps1 -SourcePath "_site/assets/images/opengraph/linkedin/"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,4 @@
+id,category,name,description,vendor,version,source,productname,platform,licence,created_at,reviewed_at,retired_at,path,visibility,nickname
+TA_PTC_062,Package Management,Chocolatey,"Chocolatey is software management automation for Windows that wraps installers, executables, zips, and scripts into compiled packages.","Chocolatey Software, Inc",2.4.1,https://chocolatey.org/,Chocolatey,Windows,Apache 2.0,2024-12-12,2024-12-12,,Chocolatey,public,TA_PTC_062
+TA_PTC_063,Automation Tools,UiPath Studio,"Studio Web allows you to create and run cross-platform automations from any operating system, be it Windows, Mac, or Linux","UiPath, Inc.",2024.10.x,https://www.uipath.com/product/studio,UiPath Studio,Windows,proprietary,2020-01-01,2024-12-12,,,,TA_PTC_063
+TA_PTC_064,,MyGet,MyGet allows you to create and host your own NuGet feed.,"Idera, Inc.",NuGet,https://www.myget.org/,MyGet,,,2024-01-01,,,,,TA_PTC_064

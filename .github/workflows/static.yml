@@ -1,0 +1,76 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - content-editing
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Linux Libertine and Biolinum Fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-linuxlibertine
+          sudo apt-get install -y fonts-dejavu-core fonts-dejavu-extra
+          sudo apt-get install -y imagemagick imagemagick-6.q16 gsfonts
+          sudo fc-cache -f -v
+          convert -list font | grep -i "linux"
+
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Set up Ruby (with the correct version)
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.6'
+
+      # Install dependencies
+      - name: Install Bundler and dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      # Conditionally set the target for prod or test
+      - name: Set Make target for prod or test
+        id: make-target
+        run: |
+          if [[ "${{ github.repository }}" == "rpapub/.github" ]]; then
+            echo "TARGET=build" >> $GITHUB_ENV  # Prod build for main branch
+          else
+            echo "TARGET=build-test" >> $GITHUB_ENV  # Test build for other branches
+          fi
+
+      # Build the site
+      - name: Build site
+        run: |
+          make $TARGET
+          make convert-svg
+
+      # Upload the built site as an artifact
+      - name: Upload Pages artifact
+        id: upload
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
