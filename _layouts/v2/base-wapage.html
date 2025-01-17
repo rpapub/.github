@@ -36,6 +36,17 @@
   <script src="https://backers.webawesome.com/dist/webawesome.loader.js" type="module"></script>
   <link rel="stylesheet" href={{"/assets/css/webawesome/cprima.css" | relative_url }}>
   <link rel="stylesheet" href={{"/assets/css/webawesome/checklists.css" | relative_url }}>
+
+  <!-- OpenGraph Meta Tags -->
+  {% if page.layout == 'posts' or page.opengraph.linkedin.image %}
+    {% if page.opengraph and page.opengraph.linkedin and page.opengraph.linkedin.image %}
+      <meta property="og:title" content="{{ page.title }}">
+      <meta property="og:image" content="{{ page.opengraph.linkedin.image | absolute_url }}">
+      <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | escape | default: site.description }}">
+      <meta property="og:url" content="{{ page.url | absolute_url }}">
+      <meta property="og:type" content="article">
+    {% endif %}
+  {% endif %}
 </head>
 
 <body>
@@ -54,47 +65,50 @@
             class="wa-heading-s">rpapub</span></a>
       </div>
       <div class="wa-cluster wa-gap-xs">
-        <a href="{{" /resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html" | relative_url
+        <a href="{{"/resources/devops/tools/chocolatey/about-chocolatey-uipath-packages.html" | relative_url
           }}"><wa-icon name="box"></wa-icon> Chocolatey</a>
       </div>
     </header>
     <!--nav slot="subheader">
-<div class="wa-cluster" style="flex-wrap: nowrap;">
-  <wa-icon-button data-toggle-nav name="bars" label="Menu"></wa-icon-button>
-  <wa-breadcrumb style="font-size: var(--wa-font-size-s);">
-    <wa-breadcrumb-item>Field Guides</wa-breadcrumb-item>
-    <wa-breadcrumb-item>Owls</wa-breadcrumb-item>
-    <wa-breadcrumb-item>Great Horned Owl</wa-breadcrumb-item>
-  </wa-breadcrumb>
-</div>
-</nav//-->
+      <div class="wa-cluster" style="flex-wrap: nowrap;">
+        <wa-icon-button data-toggle-nav name="bars" label="Menu"></wa-icon-button>
+        <wa-breadcrumb style="font-size: var(--wa-font-size-s);">
+          <wa-breadcrumb-item>Field Guides</wa-breadcrumb-item>
+          <wa-breadcrumb-item>Owls</wa-breadcrumb-item>
+          <wa-breadcrumb-item>Great Horned Owl</wa-breadcrumb-item>
+        </wa-breadcrumb>
+      </div>
+    </nav//-->
 
-    <!--nav slot="navigation-header">
-<div class="wa-flank"></div>
-</nav //-->
     <nav slot="navigation">
-
-      {% if site.data.nav.chocolatey.toc[0] %}
-      {% for item in site.data.nav.chocolatey.toc %}
-      <h2>{{ item.title }}</h2>
-      {% if item.subfolderitems[0] %}
-      <ul>
-        {% for entry in item.subfolderitems %}
-        <li><a href="{{ entry.url }}">{{ entry.page }}</a>
-          {% if entry.subsubfolderitems[0] %}
+    {% assign nav_key = page.nav | default: "default" %}
+    {% if site.data.nav[nav_key] and site.data.nav[nav_key].toc[0] %}
+    <nav slot="navigation-header">
+    <div class="wa-flank">Navigation</div>
+    </nav>
+      {% for item in site.data.nav[nav_key].toc %}
+        {% if item.title %}<h2>{{ item.title }}</h2>{% endif %}
+        {% if item.subfolderitems[0] %}
           <ul>
-            {% for subentry in entry.subsubfolderitems %}
-            <li><a href="{{ subentry.url }}">{{ subentry.page }}</a></li>
+            {% for entry in item.subfolderitems %}
+              <li><a href="{{ entry.url }}">{{ entry.page }}</a>
+                {% if entry.subsubfolderitems[0] %}
+                  <ul>
+                    {% for subentry in entry.subsubfolderitems %}
+                      <li><a href="{{ subentry.url }}">{{ subentry.page }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
             {% endfor %}
           </ul>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-      {% endif %}
+        {% endif %}
       {% endfor %}
-      {% endif %}
-
+    {% else %}
+    <!-- nav slot="navigation-header">
+    <div class="wa-flank"></div>
+    </nav //-->
+    {% endif %}
     </nav>
 
     {% ifhascontent navigation-footer %}

@@ -1,9 +1,26 @@
 <svg width="1600" height="840" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
   <rect width="1600" height="840" fill="#fdf6e3" />
-  <rect y="200" width="1600" height="100" fill="#cb4b16" />
-  <text x="800" y="260" font-size="{{ font_size | default: '48' }}" 
-        text-anchor="middle" fill="{{ text_color | default: '#002b36' }}" 
+  <!-- Highlight Bar -->
+  <rect y="40" width="1600" height="100" fill="#cb4b16" />
+  
+  <!-- Main Title -->
+  <text x="800" y="100" font-size="{{ page.font_size | default: '64' }}" 
+        text-anchor="middle" fill="{{ page.text_color | default: '#002b36' }}" 
         dominant-baseline="middle" font-family="Linux Biolinum O, Linux Biolinum, sans-serif">
-    {{ text_content | default: 'rpapub.cprima.net' }}
+    {{ page.text_content | default: page.title }}
+  </text>
+  
+  <!-- Multi-line Textbox -->
+  {% assign line_count = page.sub_text | split: '~' | size %}
+  {% assign base_font_size = 360 | divided_by: line_count %}
+  <text x="800" y="300" text-anchor="middle" fill="{{ page.text_color | default: '#002b36' }}" 
+        dominant-baseline="middle" font-family="Linux Biolinum O, Linux Biolinum, sans-serif">
+    {% assign lines = page.sub_text | split: '~' %}
+    {% for line in lines %}
+      <tspan x="800" dy="{% if forloop.first %}0{% else %}1.2em{% endif %}" font-size="{{ base_font_size }}">
+        {{ line }}
+      </tspan>
+    {% endfor %}
   </text>
 </svg>
