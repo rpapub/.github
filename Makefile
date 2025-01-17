@@ -20,7 +20,7 @@ GIT_BRANCH_EDITING = content-editing
 COMMIT_MSG = 'Deploy to GitHub Pages'
 
 # Phony targets (for non-file targets)
-.PHONY: build build-test serve deploy clean
+.PHONY: build build-test serve deploy clean generate-png
 
 # Targets
 build: clean
@@ -74,7 +74,8 @@ convert-svg:
 	@echo "Calling PowerShell script to convert SVG files to PNG..."
 	./convert-svg.ps1 -SourcePath "_site/assets/images/opengraph/linkedin/"
 
-
+generate-png:
+	pwsh ./scripts/convert-svg-to-png.ps1
 
 
 
