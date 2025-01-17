@@ -23,14 +23,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Linux Libertine and Biolinum Fonts
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y fonts-linuxlibertine
-          sudo apt-get install -y fonts-dejavu-core fonts-dejavu-extra
-          sudo apt-get install -y imagemagick imagemagick-6.q16 gsfonts
-          sudo fc-cache -f -v
-          convert -list font | grep -i "linux"
+#      - name: Install Linux Libertine and Biolinum Fonts
+#        run: |
+#          sudo apt-get update
+#          sudo apt-get install -y fonts-linuxlibertine
+#          sudo apt-get install -y fonts-dejavu-core fonts-dejavu-extra
+#          sudo apt-get install -y imagemagick imagemagick-6.q16 gsfonts
+#          sudo fc-cache -f -v
+#          convert -list font | grep -i "linux"
 
       # Checkout the repository
       - name: Checkout repository
@@ -62,7 +62,7 @@ jobs:
       - name: Build site
         run: |
           make $TARGET
-          make convert-svg
+          #make convert-svg
 
       # Upload the built site as an artifact
       - name: Upload Pages artifact
