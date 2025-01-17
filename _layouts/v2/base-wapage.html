@@ -41,7 +41,7 @@
   {% if page.layout == 'posts' or page.opengraph.linkedin.image %}
     {% if page.opengraph and page.opengraph.linkedin and page.opengraph.linkedin.image %}
       <meta property="og:title" content="{{ page.title }}">
-      <meta property="og:image" content="{{ page.opengraph.linkedin.image | absolute_url }}">
+      <meta name="image" property="og:image" content="{{ page.opengraph.linkedin.image | absolute_url }}">
       <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | escape | default: site.description }}">
       <meta property="og:url" content="{{ page.url | absolute_url }}">
       <meta property="og:type" content="article">
